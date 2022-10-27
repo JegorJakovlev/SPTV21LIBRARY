@@ -10,7 +10,7 @@ import entity.Reader;
 import java.util.Scanner;
 
 public class ReaderManager {
-    private Scanner scanner;
+    private final Scanner scanner;
 
 
     public ReaderManager() {
@@ -29,7 +29,7 @@ public class ReaderManager {
         return reader;
     }
 
-    public void printListReader(Reader[] readers) {
+    public void printListReaders(Reader[] readers) {
         for (int i = 0; i < readers.length; i++) {
             System.out.printf("%d. %s %s. Телефон: %s%n"
                     , i + 1
@@ -41,4 +41,36 @@ public class ReaderManager {
 
     }
 
+
+
+public Reader[] changeReader(Reader[] readers) {
+    System.out.println("Список читателей");
+    this.printListReaders(readers);
+    System.out.print("Выберите номер читателя");
+    int numberReader = scanner.nextInt();scanner.nextLine();
+    System.out.println("Имя: "+readers[numberReader-1].getFirstname());
+    System.out.print("Изменить? (y/n): ");
+    String letter = scanner.nextLine();
+    if(letter.equals("y")){
+        System.out.println("Введите новое имя: ");
+        readers[numberReader - 1].setFirstname(scanner.nextLine());
+
+    }
+    System.out.println("Фамилия: "+readers[numberReader-1].getFirstname());
+    System.out.print("Изменить? (y/n): ");
+    letter = scanner.nextLine();
+    if(letter.equals("y")){
+        System.out.println("Введите новое имя: ");
+        readers[numberReader - 1].setLastname(scanner.nextLine());
+    }
+    System.out.println("Телефон: "+readers[numberReader-1].getFirstname());
+    System.out.print("Изменить? (y/n): ");
+    letter = scanner.nextLine();
+    if(letter.equals("y")){
+        System.out.println("Введите телефон: ");
+        readers[numberReader - 1].setPhone(scanner.nextLine());
+    }
+    return readers;
+  }
 }
+
